@@ -1,9 +1,25 @@
-import React from 'react'
-
+import React from 'react';
+import './App.css';
+import Header from './components/Header';
+import CashButtonGroup from './components/CashButtonGroup';
 const App = () => {
   return (
     <div>
-      <h1>Cash Register System Skeleton</h1>
+      <Header />
+      <div>
+        <div>
+          <div>
+            <p>Image</p>
+          </div>
+          <CashButtonGroup/>
+        </div>
+        <div>
+          <p>Terminal</p>
+        </div>
+        <div>
+          <p>Screen Display</p>
+        </div>
+      </div>
     </div>
   )
 }

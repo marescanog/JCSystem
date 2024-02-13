@@ -1,0 +1,19 @@
+.left_section{
+    flex: 1;
+    background-color: aqua;
+}
+
+.center_section{
+    flex: 2;
+    background-color: blueviolet;
+}
+
+.right_section{
+    flex: 1;
+    background-color: brown;
+}
+
+.main_section{
+    display: flex;
+    flex-direction: row;
+}

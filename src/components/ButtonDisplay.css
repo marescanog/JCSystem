@@ -1,0 +1,48 @@
+.default {
+    background-color:"#FFFF"
+}
+
+.default__rowStyle {
+    display: flex;
+    flex-direction: row;
+}
+
+.default__containerStyle {
+    display: flex;
+    flex-direction: column;
+}
+
+.cashButton {
+    background-color: blue;
+    border-radius: 50;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    padding: 20px;
+    border-radius: 30px;
+    color: white;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.terminalNumberButton {
+    background-color: gray;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    padding: 20px;
+    color: white;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.terminalTextButton {
+    background-color: yellow;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    padding: 25px;
+    color: black;
+    margin: 5px;
+    cursor: pointer;
+}

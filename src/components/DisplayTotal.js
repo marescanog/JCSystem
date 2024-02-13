@@ -10,12 +10,12 @@ const DisplayTotal = props => {
             {
                 props?.numbersList && props.numbersList.map(number=>{
                     return (
-                        <p>Mark: {number}</p>
+                        <p key={"NS"+number}>Mark: {number}</p>
                     )
                 })
             }
         </div>
-        <p>Total: </p>
+        <p>Total: {props?.total??0}</p>
       </div>
     </div>
   )

@@ -36,6 +36,18 @@
     cursor: pointer;
 }
 
+.terminalNumberButton_selected {
+    border-color: red;
+    border-width: 2px;
+    background-color: gray;
+    text-decoration: none;
+    display: inline-block;
+    padding: 20px;
+    color: white;
+    margin: 5px;
+    cursor: pointer;
+}
+
 .terminalTextButton {
     background-color: yellow;
     text-decoration: none;

@@ -1,19 +1,27 @@
 .left_section{
     flex: 1;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
 
+.whole_section{
+    flex: 1;
+    background-color: #f5cf52;
+}
 .center_section{
     flex: 2;
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
 }
 
 .right_section{
     flex: 1;
-    background-color: brown;
+    /* background-color: brown; */
 }
 
 .main_section{
     display: flex;
     flex-direction: row;
+}
+
+.btn-rand{
+    display: block;
 }

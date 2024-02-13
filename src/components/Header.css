@@ -1,0 +1,20 @@
+.header-container {
+    background-color: #51b2df;
+    background-image: linear-gradient(to bottom right, #3477b6, #51b2df);
+    width: 100vw;
+    min-width: 600px;
+}
+
+.header-text {
+    text-align: center;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    font-size: 4em;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 1000;
+    font-style: normal;
+    color: #feff54;
+    text-shadow: 2px 2px #000000;
+    margin: 0;
+}

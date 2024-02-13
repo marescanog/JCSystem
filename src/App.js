@@ -3,6 +3,9 @@ import './App.css';
 import Header from './components/Header';
 import ButtonDisplay from './components/ButtonDisplay'; 
 import DisplayTotal from './components/DisplayTotal';
+import decor from './images/Decor.png';
+import cashButtonBG from './images/cashbutton.png';
+
 const App = () => {
 
   const cashButtonStyles = [
@@ -27,16 +30,16 @@ const App = () => {
       id:"CB1",
       rowStyle:"default__rowStyle",
       buttonData:     [
-        {text:"$1", value:1, funcX:()=>{validateAddCashAmount(()=>{setCashValue(prevValue => prevValue + 1); })},  id:"CBC1", },
-        {text:"$5", value:5, funcX:()=>{validateAddCashAmount(()=>{setCashValue(prevValue => prevValue + 5); })},  id:"CBC2",},
+        {text:"$1", value:1, funcX:()=>{validateAddCashAmount(()=>{setCashValue(prevValue => prevValue + 1); })},  id:"CBC1", buttonBackgroundImage: cashButtonBG, buttonBackgroundImageStyle:"cashButton_image_style", textStyle:"casht_btn_textStyle_1" },
+        {text:"$5", value:5, funcX:()=>{validateAddCashAmount(()=>{setCashValue(prevValue => prevValue + 5); })},  id:"CBC2", buttonBackgroundImage: cashButtonBG, buttonBackgroundImageStyle:"cashButton_image_style", textStyle:"casht_btn_textStyle_2"},
       ]
     },
     {
       id:"CB2",
       rowStyle:"default__rowStyle",
       buttonData:     [
-        {text:"$10", value:10, funcX:()=>{validateAddCashAmount(()=>{setCashValue(prevValue => prevValue + 10); })},  id:"CBC3", },
-        {text:"$20", value:20, funcX:()=>{validateAddCashAmount(()=>{setCashValue(prevValue => prevValue + 20); })},  id:"CBC4",},
+        {text:"$10", value:10, funcX:()=>{validateAddCashAmount(()=>{setCashValue(prevValue => prevValue + 10); })},  id:"CBC3", buttonBackgroundImage: cashButtonBG, buttonBackgroundImageStyle:"cashButton_image_style", textStyle:"casht_btn_textStyle"},
+        {text:"$20", value:20, funcX:()=>{validateAddCashAmount(()=>{setCashValue(prevValue => prevValue + 20); })},  id:"CBC4",buttonBackgroundImage: cashButtonBG, buttonBackgroundImageStyle:"cashButton_image_style", textStyle:"casht_btn_textStyle"},
       ]
     }
   ];
@@ -44,7 +47,7 @@ const App = () => {
   const  terminalButtons = [
     {
       id:"TB1",
-      rowStyle:"default__rowStyle",
+      rowStyle:"terminal__rowStyle",
       buttonData: [
         {text:"1", value:1, funcX:()=>{addNum(1, 0, 0)} , id:"TBC1",},
         {text:"2", value:2, funcX:()=>{addNum(2, 0, 1)} , id:"TBC2", },
@@ -56,7 +59,7 @@ const App = () => {
     },
     {
       id:"TB2",
-      rowStyle:"default__rowStyle",
+      rowStyle:"terminal__rowStyle",
       buttonData:         [
         {text:"7", value:7, funcX:()=>{addNum(7, 1, 0)} , id:"TBC7", },
         {text:"8", value:8, funcX:()=>{addNum(8, 1, 1)} , id:"TBC8", },
@@ -68,7 +71,7 @@ const App = () => {
     },
     {
       id:"TB3",
-      rowStyle:"default__rowStyle",
+      rowStyle:"terminal__rowStyle",
       buttonData:         [
         {text:"13", value:13, funcX:()=>{addNum(13, 2, 0)} , id:"TBC13", },
         {text:"14", value:14, funcX:()=>{addNum(14, 2, 1)} , id:"TBC14", },
@@ -80,7 +83,7 @@ const App = () => {
     },
     {
       id:"TB4",
-      rowStyle:"default__rowStyle",
+      rowStyle:"terminal__rowStyle",
       buttonData:         [
         {text:"19", value:19, funcX:()=>{addNum(19, 3, 0)}, id:"TBC19", },
         {text:"20", value:20, funcX:()=>{addNum(20, 3, 1)}, id:"TBC20", },
@@ -186,7 +189,7 @@ const App = () => {
       <main className="main_section">
         <div className="left_section">
           <div>
-            <p>Image</p>
+            <img src={decor} alt="WHE WHE Logo" className={"image_style"}/>
           </div>
           <ButtonDisplay buttonList={cashButtons}  buttonStyles={cashButtonStyles} containerStyle={"default__containerStyle"}/>
         </div>

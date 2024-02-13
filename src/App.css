@@ -1,15 +1,32 @@
+
+.whole_section{
+    flex: 1;
+    background-color: #f5cf52;
+    height: 100vh;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.main_section{
+    display: flex;
+    flex-direction: row;
+    max-width: 7500px;
+    min-width: 600px;
+}
+
 .left_section{
     flex: 1;
     /* background-color: aqua; */
 }
 
-.whole_section{
-    flex: 1;
-    background-color: #f5cf52;
-}
+
 .center_section{
     flex: 2;
     /* background-color: blueviolet; */
+
 }
 
 .right_section{
@@ -17,11 +34,12 @@
     /* background-color: brown; */
 }
 
-.main_section{
-    display: flex;
-    flex-direction: row;
-}
 
 .btn-rand{
     display: block;
+}
+
+.image_style{
+    max-width: 250px;
+    margin-top: 0.5em;
 }

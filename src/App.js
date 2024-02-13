@@ -5,6 +5,7 @@ import DisplayTotal from './components/DisplayTotal';
 import decor from './images/Decor.png';
 import Terminal from './components/Terminal';
 import CashButtons from './components/CashButtons';
+import Swal from 'sweetalert2';
 
 const App = () => {
  
@@ -13,7 +14,7 @@ const App = () => {
   const [refresh, setRefresh] = useState(false);
   const [randState, setRandState] = useState(Array(20).fill(false));
 
-  const addNum = (num, row, col)=>{
+  const addNum = (num)=>{
     let indx = selectedNums.findIndex(arrNum=>{return arrNum == num});
     if(indx < 0){
       // Check if there are 5 numbers
@@ -22,7 +23,12 @@ const App = () => {
         setSelectedNums([...selectedNums]);
         return true;
       } else {
-        alert("You have the maximum amount of numbers picked.");
+        Swal.fire({
+          title: 'Error!',
+          text: 'You have the maximum amount of numbers picked.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        })
         return false;
       }
     } else {
@@ -35,7 +41,12 @@ const App = () => {
 
   const validateAddCashAmount = (_callback = ()=>{}, v)=> {
     if(selectedNums.length < 5){
-      alert("Please select 5 numbers before selecting a cash value");
+      Swal.fire({
+        title: 'Cannot Cash Out Yet',
+        text: 'Please select 5 numbers before selecting a cash value.',
+        icon: 'info',
+        confirmButtonText: 'OK'
+      });
     } else {
       _callback(v);
     }
@@ -46,16 +57,39 @@ const App = () => {
 
     if(selectedNums.length < 5){
       isValid = false;
-      alert("Please select 5 numbers before cashing out");
+      Swal.fire({
+        title: 'Cannot Cash Out Yet',
+        text: 'Please select 5 numbers before cashing out.',
+        icon: 'info',
+        confirmButtonText: 'OK'
+      });
     } 
 
     if(isValid && cashValue == 0){
       isValid = false;
-      alert("Please select a cash value before cashing out");
+      Swal.fire({
+        title: 'Cannot Cash Out Yet',
+        text: 'Please select a cash value to cash out.',
+        icon: 'info',
+        confirmButtonText: 'OK'
+      });
     }
 
     if(isValid){
-      alert("You have cashed out");
+      Swal.fire({
+        title: "You Have Cashed Out a Ticket!",
+        width: 600,
+        padding: "3em",
+        color: "#162a62",
+        background: "#fff url(/images/trees.png)",
+        html:`<div><p><b>Your Numbers:</b></p><p>${selectedNums[0]}</p><p>${selectedNums[1]}</p><p>${selectedNums[2]}</p><p>${selectedNums[3]}</p><p>${selectedNums[4]}</p><p><b>Total Cashout</b>:$${cashValue.toFixed(2)}</p></div>`,
+        backdrop: `
+          rgba(0,0,123,0.4)
+          left top
+          no-repeat
+        `
+      });
+
       __callback();
     }
   }

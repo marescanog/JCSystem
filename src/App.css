@@ -1,4 +1,3 @@
-
 .whole_section{
     flex: 1;
     background-color: #f5cf52;
@@ -19,19 +18,16 @@
 
 .left_section{
     flex: 1;
-    /* background-color: aqua; */
 }
 
 
 .center_section{
     flex: 2;
-    /* background-color: blueviolet; */
-
 }
 
 .right_section{
     flex: 1;
-    /* background-color: brown; */
+    margin-left: 10px;
 }
 
 

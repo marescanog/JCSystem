@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Terminal.css';
+import '../css/Terminal.css';
 import TerminalNumberButton from './TerminalNumberButton';
 
 const Terminal = ({funcX, cashFuncX, clearFuncX, clearState, randState=Array(20)}) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import './CashButton.css';
+import '../css/CashButton.css';
 import cashButtonBG from '../images/cashbutton.png';
 
 const CashButton = ({value, funcX}) => {

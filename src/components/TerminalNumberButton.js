@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import './TerminalNumberButton.css';
+import '../css/TerminalNumberButton.css';
 
 const TerminalNumberButton = props => {
   const [isSelected, setIsSelected] = useState(false); 

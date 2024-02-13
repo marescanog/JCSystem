@@ -1,6 +1,6 @@
 import React from 'react'
 import CashButton from './CashButton';
-import './CashButtons.css'
+import '../css/CashButtons.css'
 
 const CashButtons = ({funcX}) => {
   const cashValues = [1, 5, 10, 20];

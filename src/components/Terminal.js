@@ -1,19 +1,27 @@
-import React from 'react';
-import LotButton from './LotButton';
+import React, { useState } from 'react';
+import './Terminal.css';
+import TerminalNumberButton from './TerminalNumberButton';
 
-const Terminal = props => {
-    const buttonList = props?.buttonList && Array.isArray(props?.buttonList) ? props?.buttonList : [];
-    return (
-        <div>
-          {
-            (props?.buttonList && Array.isArray(props?.buttonList)) && 
-            props?.buttonList?.length != 0 ?
-                props?.buttonList?.buttonList.map(el => <LotButton value={el?.value}  text={el?.text}/>)
-            : 
-            <p>You have no buttons to display</p>
-          }
-        </div>
-    )
+const Terminal = ({funcX, cashFuncX, clearFuncX, clearState, randState=Array(20)}) => {
+
+  const values = Array.from(Array(20).keys());
+
+  return (
+    <div className={"grid-container"}>
+      {
+        values.map((el)=>{
+          let val = el+1;
+          return <TerminalNumberButton key={"TB"+el} value={val} funcX={funcX} clearState={clearState} randState={randState[el]}/>
+        })
+      }
+      <button className={"cash_btn"} onClick={cashFuncX?cashFuncX:()=>{}}>CASH</button>
+      <button className={"clear_btn"} onClick={()=>{
+        if(clearFuncX != null){
+          clearFuncX(prev=> !prev); 
+        }
+      }}>CLEAR</button>
+    </div>
+  )
 }
 
 export default Terminal

@@ -12,6 +12,14 @@
     flex-direction: column;
 }
 
+.terminal__containerStyle {
+    display: flex;
+    flex-direction: column;
+    background-color: #3376b9;
+    max-width: 370px;
+}
+
+
 .default_btn_textStle{
     text-align: center;
 }
@@ -49,11 +57,9 @@
     font-style: normal;
 }
 
-
-
 .cashButton {
     background-color: transparent;
-    border-radius: 50;
+    border-radius: 5em;
     text-decoration: none;
     display: inline-block;
     border: none;
@@ -78,6 +84,8 @@
 }
 
 .terminalNumberButton {
+    border-color: transparent;
+    border-width: 2px;
     background-color: gray;
     text-decoration: none;
     display: inline-block;
@@ -86,6 +94,11 @@
     color: white;
     margin: 5px;
     cursor: pointer;
+    height: 50px;
+    width: 50px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
 .terminalNumberButton_selected {
@@ -98,6 +111,10 @@
     color: white;
     margin: 5px;
     cursor: pointer;
+    height: 50px;
+    width: 50px;
+    justify-content: center;
+    align-items: center;
 }
 
 .terminalTextButton {
@@ -109,6 +126,9 @@
     color: black;
     margin: 5px;
     cursor: pointer;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
 }
 
 .terminal__rowStyle {

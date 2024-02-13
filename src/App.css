@@ -37,6 +37,20 @@
 
 .btn-rand{
     display: block;
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    background-image: linear-gradient(to bottom right,  #162a62,#3969b6 25%, #3969b6 30%, #59b7f1 50%,  #325895 75%,#162a62 95%, #162a62 100%);
+    border-radius: 10px;
+    color: white;
+    font-size: 1.5em;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    border: 3px solid #162a62;
+    text-shadow: black 1px 1px 1px;
 }
 
 .image_style{

@@ -1,5 +1,5 @@
 import React, {useEffect, useState}  from 'react';
-import './DisplayTotal.css';
+import '../css/DisplayTotal.css';
 
 const DisplayTotal = props => {
 

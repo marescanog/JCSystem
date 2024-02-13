@@ -21,6 +21,8 @@ const App = () => {
       if(selectedNums.length < 5){
         selectedNums.push(num);
         setSelectedNums([...selectedNums]);
+        randState[num-1] = true;
+        setRandState([...randState]);
         return true;
       } else {
         Swal.fire({
@@ -35,6 +37,8 @@ const App = () => {
       // Toggle if it has already been added
       selectedNums.splice(indx, 1);
       setSelectedNums([...selectedNums]);
+      randState[num-1] = false;
+      setRandState([...randState]);
       return true;
     }
   }
@@ -42,7 +46,7 @@ const App = () => {
   const validateAddCashAmount = (_callback = ()=>{}, v)=> {
     if(selectedNums.length < 5){
       Swal.fire({
-        title: 'Cannot Cash Out Yet',
+        title: 'Cannot Select Cash Value Yet',
         text: 'Please select 5 numbers before selecting a cash value.',
         icon: 'info',
         confirmButtonText: 'OK'
@@ -82,7 +86,7 @@ const App = () => {
         padding: "3em",
         color: "#162a62",
         background: "#fff url(/images/trees.png)",
-        html:`<div><p><b>Your Numbers:</b></p><p>${selectedNums[0]}</p><p>${selectedNums[1]}</p><p>${selectedNums[2]}</p><p>${selectedNums[3]}</p><p>${selectedNums[4]}</p><p><b>Total Cashout</b>:$${cashValue.toFixed(2)}</p></div>`,
+        html:`<div><p><b>Your Numbers:</b></p><p>${selectedNums[0]}, ${selectedNums[1]}, ${selectedNums[2]}, ${selectedNums[3]}, ${selectedNums[4]}</p><p><b>Total Cashout: </b>$${cashValue.toFixed(2)}</p></div>`,
         backdrop: `
           rgba(0,0,123,0.4)
           left top
@@ -120,8 +124,6 @@ const App = () => {
         randNum = Math.floor(getRandNum(1, 21));
       }
       addNum(randNum, Math.floor((randNum-1)/6), (randNum-1)%6);
-      randState[randNum-1] = true;
-      setRandState([...randState]);
     }
   }
 

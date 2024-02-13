@@ -1,9 +1,14 @@
-import React from 'react'
+import React from 'react';
+import './CashButton.css';
+import cashButtonBG from '../images/cashbutton.png';
 
-const CashButton = props => {
+const CashButton = ({value, funcX}) => {
   return (
-    <button onClick={()=>{alert(props?.value??"No Value Assigned")}}>$ {props?.text??"0"}</button>
-  )
+    <button className={'cashButton'} onClick={()=>{funcX(value);}}>
+        <p className={'casht_btn_textStyle_'+value}>${value}</p>
+        <img src={cashButtonBG} className={'cashButton_image_style'}/>
+    </button>
+)
 }
 
 export default CashButton

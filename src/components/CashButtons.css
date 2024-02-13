@@ -1,0 +1,8 @@
+.cb-grid{
+    display: grid;
+    grid-template-columns: auto auto ;
+    gap: 0;
+    padding: 10px;
+    margin: 0;
+    padding: 0;
+}

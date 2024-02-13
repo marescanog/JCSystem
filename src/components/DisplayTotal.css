@@ -1,0 +1,11 @@
+.main_screen{
+    flex: 1;
+    background-color: chartreuse;
+    height: 50vh;
+    justify-content: space-between;
+}
+
+.numList_screen  {
+    min-height: 90%;
+    background-color: cornflowerblue;
+}

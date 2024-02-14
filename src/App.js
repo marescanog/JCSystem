@@ -5,6 +5,8 @@ import DisplayTotal from './components/DisplayTotal';
 import decor from './images/Decor.png';
 import Terminal from './components/Terminal';
 import CashButtons from './components/CashButtons';
+import TicketContainer from './components/extra/TicketContainer';
+import Swal from 'sweetalert2';
 
 const App = () => {
  
@@ -12,30 +14,45 @@ const App = () => {
   const [cashValue, setCashValue] = useState(0);
   const [refresh, setRefresh] = useState(false);
   const [randState, setRandState] = useState(Array(20).fill(false));
+  const [ticketList, setTicketList] = useState([]);
 
-  const addNum = (num, row, col)=>{
+  const addNum = (num)=>{
     let indx = selectedNums.findIndex(arrNum=>{return arrNum == num});
     if(indx < 0){
       // Check if there are 5 numbers
       if(selectedNums.length < 5){
         selectedNums.push(num);
         setSelectedNums([...selectedNums]);
+        randState[num-1] = true;
+        setRandState([...randState]);
         return true;
       } else {
-        alert("You have the maximum amount of numbers picked.");
+        Swal.fire({
+          title: 'Error!',
+          text: 'You have the maximum amount of numbers picked.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        })
         return false;
       }
     } else {
       // Toggle if it has already been added
       selectedNums.splice(indx, 1);
       setSelectedNums([...selectedNums]);
+      randState[num-1] = false;
+      setRandState([...randState]);
       return true;
     }
   }
 
   const validateAddCashAmount = (_callback = ()=>{}, v)=> {
     if(selectedNums.length < 5){
-      alert("Please select 5 numbers before selecting a cash value");
+      Swal.fire({
+        title: 'Cannot Select Cash Value Yet',
+        text: 'Please select 5 numbers before selecting a cash value.',
+        icon: 'info',
+        confirmButtonText: 'OK'
+      });
     } else {
       _callback(v);
     }
@@ -46,18 +63,49 @@ const App = () => {
 
     if(selectedNums.length < 5){
       isValid = false;
-      alert("Please select 5 numbers before cashing out");
+      Swal.fire({
+        title: 'Cannot Cash Out Yet',
+        text: 'Please select 5 numbers before cashing out.',
+        icon: 'info',
+        confirmButtonText: 'OK'
+      });
     } 
 
-    if(isValid && cashValue == 0){
+    if(isValid && cashValue === 0){
       isValid = false;
-      alert("Please select a cash value before cashing out");
+      Swal.fire({
+        title: 'Cannot Cash Out Yet',
+        text: 'Please select a cash value to cash out.',
+        icon: 'info',
+        confirmButtonText: 'OK'
+      });
     }
 
     if(isValid){
-      alert("You have cashed out");
+      Swal.fire({
+        title: "You Have Cashed Out a Ticket!",
+        width: 600,
+        padding: "3em",
+        color: "#162a62",
+        background: "#fff url(/images/trees.png)",
+        html:`<div><p><b>Your Numbers:</b></p><p>${selectedNums[0]}, ${selectedNums[1]}, ${selectedNums[2]}, ${selectedNums[3]}, ${selectedNums[4]}</p><p><b>Total Cashout: </b>$${cashValue.toFixed(2)}</p></div>`,
+        backdrop: `
+          rgba(0,0,123,0.4)
+          left top
+          no-repeat
+        `
+      });
+      const date = new Date();
+      let tcktID = ticketList.length+1;
+      saveToTicketList({ticketID:(tcktID.toString()).padStart(4,"0"), totalCashout:"$"+cashValue.toFixed(2), selectedNums:[...selectedNums], dateTime:`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`});
+
       __callback();
     }
+  }
+
+  const saveToTicketList = (ticketData) => {
+    ticketList.unshift(ticketData);
+    setTicketList([...ticketList]);
   }
 
   const clearTerminal = () => {
@@ -86,8 +134,6 @@ const App = () => {
         randNum = Math.floor(getRandNum(1, 21));
       }
       addNum(randNum, Math.floor((randNum-1)/6), (randNum-1)%6);
-      randState[randNum-1] = true;
-      setRandState([...randState]);
     }
   }
 
@@ -119,7 +165,7 @@ const App = () => {
 
           {selectedNums.length != 0 && selectedNums.length != 5 &&
             <button className={'btn-rand'} onClick={()=>{
-              if(selectedNums.length == 5){
+              if(selectedNums.length === 5){
                 alert("You already have selected 5 numbers");
               } else {
                 getRandomNumbers(5-selectedNums.length);
@@ -132,7 +178,10 @@ const App = () => {
           <DisplayTotal numbersList={selectedNums} total={cashValue} clearState={refresh}/>
         </div>
       </main>
-    </div>
+      <footer>
+        <TicketContainer ticketList={ticketList}/>
+      </footer>
+      </div>
   )
 }
 

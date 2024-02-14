@@ -1,11 +1,44 @@
+
+.display_container{
+    background-color: #4ca8da;
+    margin: 0;
+    padding: 10px;
+    min-width: 180px;
+}
+
+.display_inner_container{
+    background-image: linear-gradient(#dc8133, #f5cf52);
+}
+
+.display_headertext{
+    margin: 0;
+    padding-top: 15px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.display_text{
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.display_footertext{
+    margin: 0;
+    margin-bottom: 15px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 800;
+    font-style: normal;
+}
 .main_screen{
     flex: 1;
-    background-color: chartreuse;
-    height: 50vh;
+    height: 40vh;
+    min-height: 300px;
     justify-content: space-between;
 }
 
 .numList_screen  {
     min-height: 90%;
-    background-color: cornflowerblue;
 }

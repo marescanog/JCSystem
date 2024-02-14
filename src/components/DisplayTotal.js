@@ -14,19 +14,21 @@ const DisplayTotal = props => {
   },[props?.clearState]);
 
   return (
-    <div>
-      <p>Numbers Selected:</p>
-      <div className={"main_screen"}>
-        <div className={"numList_screen"}>
-            {
-                numberArr && numberArr.map(number=>{
-                    return (
-                        <p key={"NS"+number}>Mark: {number}</p>
-                    )
-                })
-            }
+    <div className={"display_container"}>
+      <div className={"display_inner_container"}>
+        <p className={"display_headertext"}>Numbers Selected :</p>
+        <div className={"main_screen"}>
+          <div className={"numList_screen"}>
+              {
+                  numberArr && numberArr.map(number=>{
+                      return (
+                          <p className={"display_text"} key={"NS"+number}>Mark: {number}</p>
+                      )
+                  })
+              }
+          </div>
+          <p className={"display_footertext"}>Total: ${props?.total?props.total.toFixed(2):0}</p>
         </div>
-        <p>Total: {props?.total??0}</p>
       </div>
     </div>
   )

@@ -1,0 +1,54 @@
+.card {
+    background-image: linear-gradient(#dc8133, #f5cf52);
+    border-radius: 10px;
+    margin-top: 15px;
+    max-width: 400px;
+    opacity: 65%;
+    font-family: "Gothic A1", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 1em;
+}
+
+.ticket_header{
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #154369;
+    border-radius: 10px 10px 0 0 ; 
+    color: white;
+}
+
+.ticket_main_section{
+    padding-left: 30px;
+    padding-right: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket_footer{
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-size: 1.5em;
+}
+
+ul.no-bullets {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+  }
+

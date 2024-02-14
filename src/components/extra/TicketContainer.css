@@ -1,0 +1,48 @@
+.ticket_container_outer{
+    margin-top: 10px;
+}
+.ticket_container{
+    border-radius: 20px 0px 0px 20px;
+    margin-top: 10px;
+    max-height: 300px;
+    min-width: 410px;
+    margin-left: 40px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border: #2196F3 solid 4px;
+    background-color: #b2c0cb;
+    background-image:linear-gradient(to bottom,#b2c0cb,  #7e9fb9 );
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+}
+
+.ticket_headerStyle{
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    margin-left: 40px;
+    font-family: "Montserrat", sans-serif;
+    color: #1d75bd;
+    text-shadow: #162a62 1px 1px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #555; 
+}

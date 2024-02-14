@@ -5,6 +5,7 @@ import DisplayTotal from './components/DisplayTotal';
 import decor from './images/Decor.png';
 import Terminal from './components/Terminal';
 import CashButtons from './components/CashButtons';
+import TicketContainer from './components/extra/TicketContainer';
 import Swal from 'sweetalert2';
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
   const [cashValue, setCashValue] = useState(0);
   const [refresh, setRefresh] = useState(false);
   const [randState, setRandState] = useState(Array(20).fill(false));
+  const [ticketList, setTicketList] = useState([]);
 
   const addNum = (num)=>{
     let indx = selectedNums.findIndex(arrNum=>{return arrNum == num});
@@ -69,7 +71,7 @@ const App = () => {
       });
     } 
 
-    if(isValid && cashValue == 0){
+    if(isValid && cashValue === 0){
       isValid = false;
       Swal.fire({
         title: 'Cannot Cash Out Yet',
@@ -93,9 +95,17 @@ const App = () => {
           no-repeat
         `
       });
+      const date = new Date();
+      let tcktID = ticketList.length+1;
+      saveToTicketList({ticketID:(tcktID.toString()).padStart(4,"0"), totalCashout:"$"+cashValue.toFixed(2), selectedNums:[...selectedNums], dateTime:`${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`});
 
       __callback();
     }
+  }
+
+  const saveToTicketList = (ticketData) => {
+    ticketList.unshift(ticketData);
+    setTicketList([...ticketList]);
   }
 
   const clearTerminal = () => {
@@ -155,7 +165,7 @@ const App = () => {
 
           {selectedNums.length != 0 && selectedNums.length != 5 &&
             <button className={'btn-rand'} onClick={()=>{
-              if(selectedNums.length == 5){
+              if(selectedNums.length === 5){
                 alert("You already have selected 5 numbers");
               } else {
                 getRandomNumbers(5-selectedNums.length);
@@ -168,7 +178,10 @@ const App = () => {
           <DisplayTotal numbersList={selectedNums} total={cashValue} clearState={refresh}/>
         </div>
       </main>
-    </div>
+      <footer>
+        <TicketContainer ticketList={ticketList}/>
+      </footer>
+      </div>
   )
 }
 
